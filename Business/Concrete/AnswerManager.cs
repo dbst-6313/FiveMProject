@@ -2,6 +2,7 @@
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,10 +25,31 @@ namespace Business.Concrete
             return new SuccessResult("Cevap eklendi");
         }
 
+        public IResult changeStateAccept(int id)
+        {
+            var answer = _answerDal.Get(p => p.id == id);
+            answer.StateId = 2;
+            _answerDal.Update(answer);
+            return new SuccessResult("Başvuru durumu:Kabul edildi");
+        }
+
+        public IResult changeStateDenied(int id)
+        {
+            var answer = _answerDal.Get(p => p.id == id);
+            answer.StateId = 1;
+            _answerDal.Update(answer);
+             return new SuccessResult("Başvuru durumu:Reddedildi");
+        }
+
         public IResult Delete(Answer answer)
         {
             _answerDal.Delete(answer);
             return new SuccessResult("Cevap silindi");
+        }
+
+        public IDataResult<List<UserAnswerDto>> GetAcceptedAnswers()
+        {
+            return new SuccessDataResult<List<UserAnswerDto>>(_answerDal.GetActiveAnswersDto());
         }
 
         public IDataResult<List<Answer>> GetAll()
@@ -35,9 +57,24 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Answer>>(_answerDal.GetAll(), "Cevaplar listelendi");
         }
 
+        public IDataResult<List<UserAnswerDto>> GetAnswerDetails()
+        {
+            return new SuccessDataResult<List<UserAnswerDto>>(_answerDal.GetUserAnswer());
+        }
+
+        public IDataResult<UserAnswerDto> GetAnswerDetailsByUserId(int id)
+        {
+            return new SuccessDataResult<UserAnswerDto>(_answerDal.GetUserAnswerById(id));
+        }
+
         public IDataResult<Answer> GetById(int Id)
         {
             return new SuccessDataResult<Answer>(_answerDal.Get(a => a.id == Id));
+        }
+
+        public IDataResult<List<UserAnswerDto>> GetDeniedAnswers()
+        {
+            return new SuccessDataResult<List<UserAnswerDto>>(_answerDal.GetDeniedAnswersDto());
         }
 
         public IResult Update(Answer answer)

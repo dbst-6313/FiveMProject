@@ -21,9 +21,11 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
             builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
 
-            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
-            builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
+            builder.RegisterType<AnswerManager>().As<IAnswerService>().SingleInstance();
+            builder.RegisterType<EfAnswerDal>().As<IAnswerDal>().SingleInstance();
 
+            builder.RegisterType<QuestionManager>().As<IQuestionService>().SingleInstance();
+            builder.RegisterType<EfQuestionDal>().As<IQuestionDal>().SingleInstance();
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();

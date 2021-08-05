@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.AutoFac;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -16,12 +17,13 @@ namespace Business.Concrete
         {
             _questionDal = questionDal;
         }
+        [SecuredOperation("admin")]
         public IResult Add(Question question)
         {
             _questionDal.Add(question);
             return new SuccessResult("Soru eklendi");
         }
-
+        [SecuredOperation("admin")]
         public IResult Delete(Question question)
         {
             _questionDal.Delete(question);
@@ -38,6 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Question>(_questionDal.Get(a => a.id == Id));
         }
 
+        [SecuredOperation("admin")]
         public IResult Update(Question question)
         {
             _questionDal.Update(question);

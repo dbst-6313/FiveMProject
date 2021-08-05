@@ -16,7 +16,7 @@ namespace DataAccess.Concrete.Entityframework
         }
         public DbSet<Answer> answers{ get; set; }
         public DbSet<Question> questions { get; set; }
-        public DbSet<State> states { get; set; }
+        public DbSet<State> state { get; set; }
         public DbSet<User> users { get; set; }
         public DbSet<OperationClaim> operation_claims { get; set; }
         public DbSet<UserOperationClaim> user_operation_claims { get; set; }
