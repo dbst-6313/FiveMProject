@@ -109,7 +109,6 @@ namespace DataAccess.Concrete.EntityFramework
                                  StateId = s.id
                              };
                 return result.Where(a => a.StateId == 1).ToList();
-                //test
             }
         }
     }
