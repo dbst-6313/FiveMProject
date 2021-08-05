@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.AutoFac;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
@@ -17,7 +18,8 @@ namespace Business.Concrete
         {
             _userDal = userDal;
         }
-    
+
+        
         public IResult Add(User user)
         {
             _userDal.Add(user);
@@ -34,7 +36,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll());
         }
-
+        [SecuredOperation("admin")]
         public IDataResult<User> GetById(int id)
         {
             return new SuccessDataResult<User>(_userDal.Get(p => p.Id == id));
