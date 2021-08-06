@@ -2,6 +2,7 @@
 using Business.BusinessAspects.AutoFac;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
+using Core.Utilities.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using System;
@@ -19,17 +20,17 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-        
+
         public IResult Add(User user)
         {
             _userDal.Add(user);
-            return new SuccessResult("Kullanıcı eklendi");
+            return new SuccessResult(Messages.UserAdded);
         }
 
         public IResult Delete(User user)
         {
             _userDal.Delete(user);
-            return new SuccessResult("Kullanıcı silindi");
+            return new SuccessResult(Messages.UserDeleted);
         }
 
         public IDataResult<List<User>> GetAll()

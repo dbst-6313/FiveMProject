@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -22,7 +23,7 @@ namespace Business.Concrete
         public IResult Add(Answer answer)
         {
             _answerDal.Add(answer);
-            return new SuccessResult("Cevap eklendi");
+            return new SuccessResult(Messages.AnswerAdded);
         }
 
         public IResult changeStateAccept(int id)
@@ -30,7 +31,7 @@ namespace Business.Concrete
             var answer = _answerDal.Get(p => p.id == id);
             answer.StateId = 2;
             _answerDal.Update(answer);
-            return new SuccessResult("Başvuru durumu:Kabul edildi");
+            return new SuccessResult(Messages.StateAccept);
         }
 
         public IResult changeStateDenied(int id)
@@ -38,13 +39,13 @@ namespace Business.Concrete
             var answer = _answerDal.Get(p => p.id == id);
             answer.StateId = 1;
             _answerDal.Update(answer);
-             return new SuccessResult("Başvuru durumu:Reddedildi");
+            return new SuccessResult(Messages.StateDenied);
         }
 
         public IResult Delete(Answer answer)
         {
             _answerDal.Delete(answer);
-            return new SuccessResult("Cevap silindi");
+            return new SuccessResult(Messages.AnswerDeleted);
         }
 
         public IDataResult<List<UserAnswerDto>> GetAcceptedAnswers()
@@ -54,7 +55,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Answer>> GetAll()
         {
-            return new SuccessDataResult<List<Answer>>(_answerDal.GetAll(), "Cevaplar listelendi");
+            return new SuccessDataResult<List<Answer>>(_answerDal.GetAll(), Messages.AnswerListed);
         }
 
         public IDataResult<List<UserAnswerDto>> GetAnswerDetails()
@@ -80,7 +81,7 @@ namespace Business.Concrete
         public IResult Update(Answer answer)
         {
             _answerDal.Update(answer);
-            return new SuccessResult("Cevaplar güncellendi");
+            return new SuccessResult(Messages.AnswerUpdated);
         }
     }
 }

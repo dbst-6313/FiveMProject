@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.BusinessAspects.AutoFac;
+using Core.Utilities.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -21,18 +22,18 @@ namespace Business.Concrete
         public IResult Add(Question question)
         {
             _questionDal.Add(question);
-            return new SuccessResult("Soru eklendi");
+            return new SuccessResult(Messages.QuestionAdded);
         }
         [SecuredOperation("admin")]
         public IResult Delete(Question question)
         {
             _questionDal.Delete(question);
-            return new SuccessResult("Soru silindi");
+            return new SuccessResult(Messages.QuestionDeleted);
         }
 
         public IDataResult<List<Question>> GetAll()
         {
-            return new SuccessDataResult<List<Question>>(_questionDal.GetAll(), "Soruları listelendi");
+            return new SuccessDataResult<List<Question>>(_questionDal.GetAll(), Messages.QuestionListed);
         }
 
         public IDataResult<Question> GetById(int Id)
@@ -44,7 +45,7 @@ namespace Business.Concrete
         public IResult Update(Question question)
         {
             _questionDal.Update(question);
-            return new SuccessResult("Soru güncellendi");
+            return new SuccessResult(Messages.QuestionUpdate);
 
         }
     }
