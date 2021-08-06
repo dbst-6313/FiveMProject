@@ -113,7 +113,6 @@ namespace DataAccess.Concrete.EntityFramework
                                  QuestionId = q.id
                              };
                 return result.Where(a => a.StateId == 1).ToList();
-
             }
         }
     }
