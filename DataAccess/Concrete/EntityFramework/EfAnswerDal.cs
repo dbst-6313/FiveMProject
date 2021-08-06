@@ -12,7 +12,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfAnswerDal : EfEntityRepositoryBase<Answer, WhitelistApplicationContext>, IAnswerDal
     {
-        public UserAnswerDto GetUserAnswerById(int id)
+        public List<UserAnswerDto> GetUserAnswerById(int id)
         {
             using (var context = new WhitelistApplicationContext())
             {
@@ -29,11 +29,12 @@ namespace DataAccess.Concrete.EntityFramework
                                  Email = u.Email,
                                  Question = q.question,
                                  State = s.Text,
-                                 UserId = u.Id
-                                 ,
-                                 StateId = s.id
+                                 UserId = u.Id,
+                                 StateId = s.id,
+                                 AnswerId = a.id,
+                                 QuestionId = q.id
                              };
-                return result.FirstOrDefault(e => e.UserId == id);
+                return result.Where(e => e.UserId == id).ToList();
 
             }
         }
@@ -54,9 +55,10 @@ namespace DataAccess.Concrete.EntityFramework
                                  Email = u.Email,
                                  Question = q.question,
                                  State = s.Text,
-                                 UserId = u.Id
-                                 ,
-                                 StateId = s.id
+                                 UserId = u.Id,
+                                 StateId = s.id,
+                                 AnswerId = a.id,
+                                 QuestionId = q.id
                              };
                 return result.ToList();
 
@@ -79,9 +81,10 @@ namespace DataAccess.Concrete.EntityFramework
                                  Email = u.Email,
                                  Question = q.question,
                                  State = s.Text,
-                                 UserId = u.Id
-                                 ,
-                                 StateId = s.id
+                                 UserId = u.Id,
+                                 StateId = s.id,
+                                 AnswerId = a.id,
+                                 QuestionId = q.id
                              };
                 return result.Where(a=>a.StateId == 2).ToList();
 
@@ -104,9 +107,10 @@ namespace DataAccess.Concrete.EntityFramework
                                  Email = u.Email,
                                  Question = q.question,
                                  State = s.Text,
-                                 UserId = u.Id
-                                 ,
-                                 StateId = s.id
+                                 UserId = u.Id,
+                                 StateId = s.id,
+                                 AnswerId = a.id,
+                                 QuestionId = q.id
                              };
                 return result.Where(a => a.StateId == 1).ToList();
 

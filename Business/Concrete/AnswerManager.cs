@@ -62,9 +62,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<UserAnswerDto>>(_answerDal.GetUserAnswer());
         }
 
-        public IDataResult<UserAnswerDto> GetAnswerDetailsByUserId(int id)
+        public IDataResult<List<UserAnswerDto>> GetAnswerDetailsByUserId(int id)
         {
-            return new SuccessDataResult<UserAnswerDto>(_answerDal.GetUserAnswerById(id));
+            return new SuccessDataResult<List<UserAnswerDto>>(_answerDal.GetUserAnswerById(id));
         }
 
         public IDataResult<Answer> GetById(int Id)

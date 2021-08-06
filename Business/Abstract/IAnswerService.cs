@@ -14,7 +14,7 @@ namespace Business.Abstract
         IDataResult<List<UserAnswerDto>> GetAnswerDetails();
         IDataResult<List<UserAnswerDto>> GetAcceptedAnswers();
         IDataResult<List<UserAnswerDto>> GetDeniedAnswers();
-        IDataResult<UserAnswerDto> GetAnswerDetailsByUserId(int id);
+        IDataResult<List<UserAnswerDto>> GetAnswerDetailsByUserId(int id);
         IResult Add(Answer answer);
         IResult Update(Answer answer);
         IResult changeStateDenied(int id);
