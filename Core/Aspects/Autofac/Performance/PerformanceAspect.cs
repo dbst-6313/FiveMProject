@@ -22,7 +22,7 @@ namespace Core.Aspects.Autofac.Performance
         protected override void OnBefore(IInvocation ınvocation)
         {
             _stopWatch.Start();
-        }
+        } 
         protected override void OnAfter(IInvocation invocation)
         {
             if (_stopWatch.Elapsed.TotalSeconds > _interval)
