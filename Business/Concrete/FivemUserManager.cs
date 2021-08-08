@@ -30,10 +30,10 @@ namespace Business.Concrete
             return new SuccessDataResult<List<FivemUser>>(_fivemUserDal.GetAll(),Messages.FivemUserListed);
         }
 
-        //public IDataResult<FivemUser> GetById(int identifier)
-        //{
-        //    return new SuccessDataResult<FivemUser>(_fivemUserDal.Get(f => f.identifier == identifier));
-        //}
+        public IDataResult<FivemUser> GetById(string identifier)
+        {
+            return new SuccessDataResult<FivemUser>(_fivemUserDal.Get(f => f.identifier == identifier));
+        }
 
         public IResult Update(FivemUser fivemUser)
         {

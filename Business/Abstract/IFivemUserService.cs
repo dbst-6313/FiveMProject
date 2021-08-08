@@ -11,7 +11,7 @@ namespace Business.Abstract
         IResult Update(FivemUser fivemUser);
         IResult Delete(FivemUser fivemUser);
         IDataResult<List<FivemUser>> GetAll();
-        //IDataResult<FivemUser> GetById(int identifier);
-      
+        IDataResult<FivemUser> GetById(string identifier);
+
     }
 }

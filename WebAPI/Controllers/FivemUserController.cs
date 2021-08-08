@@ -30,16 +30,16 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        //[HttpGet("getbyid")]
-        //public IActionResult GetById(int identifier)
-        //{
-        //    var result = _fivemUserService.GetById(identifier);
-        //    if (result.Success)
-        //    {
-        //        return Ok(result);
-        //    }
-        //    return BadRequest(result);
-        //}
+        [HttpGet("getbyid")]
+        public IActionResult GetById(string identifier)
+        {
+            var result = _fivemUserService.GetById(identifier);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("delete")]
         public IActionResult Delete(FivemUser fivemUser)
