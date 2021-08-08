@@ -27,6 +27,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<QuestionManager>().As<IQuestionService>().SingleInstance();
             builder.RegisterType<EfQuestionDal>().As<IQuestionDal>().SingleInstance();
 
+            builder.RegisterType<FivemUserManager>().As<IFivemUserService>().SingleInstance();
+            builder.RegisterType<EfFivemUserDal>().As<IFivemUserDal>().SingleInstance();
+
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
