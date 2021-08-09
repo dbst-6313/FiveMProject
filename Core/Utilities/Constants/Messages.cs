@@ -34,6 +34,21 @@ namespace Core.Utilities.Constants
         public static string UserAdded = "Kullanıcı eklendi";
         public static string UserDeleted = "Kullanıcı silindi";
 
+        //Fivem User
         public static string FivemUserListed = "Fivem kullanıcıları listelendi";
+
+
+        //Donate
+        public static string DonateDeleted = "Donate silindi";
+        public static string DonateAdded = "Donate eklendi";
+        public static string DonateListed = "Donateler listelendi";
+        public static string DonateUpdated = "Donate güncellendi";
+        public static string DonateImageAdded;
+        public static string DonateImageNotFound;
+
+        public static string DonateImageLimit { get; set; }
+        public static string DonateImageDeleted { get; set; }
+        public static string CarImageNotFound { get; set; }
+        public static string CarImageUpdated { get; set; }
     }
 }

@@ -30,9 +30,14 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
-
             builder.RegisterType<FivemUserManager>().As<IFivemUserService>().SingleInstance();
             builder.RegisterType<EfFivemUserDal>().As<IFivemUserDal>().SingleInstance();
+
+            builder.RegisterType<DonateManager>().As<IDonateService>().SingleInstance();
+            builder.RegisterType<EfDonateDal>().As<IDonateDal>().SingleInstance();
+
+            builder.RegisterType<DonateImageManager>().As<IDonateImageService>().SingleInstance();
+            builder.RegisterType<EfDonateImageDal>().As<IDonateImageDal>().SingleInstance();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

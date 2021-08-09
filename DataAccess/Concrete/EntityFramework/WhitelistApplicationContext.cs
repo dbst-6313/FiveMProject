@@ -20,6 +20,8 @@ namespace DataAccess.Concrete.Entityframework
         public DbSet<User> users { get; set; }
         public DbSet<OperationClaim> operation_claims { get; set; }
         public DbSet<UserOperationClaim> user_operation_claims { get; set; }
+        public DbSet<Donate> donates { get; set; }
+        public DbSet<DonateImage> donateimages { get; set; }
 
     }
 }
