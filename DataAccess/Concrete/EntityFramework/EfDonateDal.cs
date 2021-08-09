@@ -20,7 +20,8 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result =
                              from donate in filter == null ? context.donates : context.donates.Where(filter)
-            
+
+
 
                              select new DonateDetailDto
                              {
@@ -28,7 +29,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  DonateName = donate.DonateName,
                                  Price = donate.Price,
                                  UsageTime = donate.UsageTime,
-
+                                 Description = donate.Description,
                                  Images = (from i in context.donateimages where i.DonateId == donate.DonateId select i.ImagePath).ToList(),
                              };
 

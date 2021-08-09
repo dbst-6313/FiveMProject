@@ -75,6 +75,19 @@ namespace WebAPI.Controllers
             return BadRequest(result);
 
         }
+
+
+        [HttpGet("getdonatedetails")]
+        public IActionResult GetDonateDetails()
+        {
+            var result = _donateService.GetDonateDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
+
 
 }

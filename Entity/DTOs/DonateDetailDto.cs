@@ -7,7 +7,7 @@ namespace Entity.DTOs
     public class DonateDetailDto
     {
         public int DonateId { get; set; }
-        public int Id { get; set; } //user ıd
+        public int DonateImageId { get; set; }
         public string DonateName { get; set; }
         public int Price { get; set; }
         public int UsageTime { get; set; }

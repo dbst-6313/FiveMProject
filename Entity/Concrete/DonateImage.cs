@@ -9,7 +9,7 @@ namespace Entity.Concrete
     public class DonateImage:IEntity
     {
         [Key]
-        public int Id { get; set; }
+        public int DonateImageId { get; set; }
         public int DonateId { get; set; }
         public string ImagePath { get; set; }
         public DateTime Date { get; set; }

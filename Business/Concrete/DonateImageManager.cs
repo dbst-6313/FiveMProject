@@ -43,7 +43,7 @@ namespace Business.Concrete
 
         public IResult Delete(DonateImage donateImage)
         {
-            var image = _donateImageDal.Get(d => d.Id == donateImage.Id);
+            var image = _donateImageDal.Get(d => d.DonateImageId == donateImage.DonateImageId);
             if (image == null)
             {
                 return new ErrorResult(Messages.DonateImageNotFound);
@@ -75,7 +75,7 @@ namespace Business.Concrete
 
         public IResult Update(IFormFile file, DonateImage donateImage)
         {
-            var image = _donateImageDal.Get(d => d.Id == donateImage.Id);
+            var image = _donateImageDal.Get(d => d.DonateImageId == donateImage.DonateImageId);
             if (image == null)
             {
                 return new ErrorResult(Messages.CarImageNotFound);
